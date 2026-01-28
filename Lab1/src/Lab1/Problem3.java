@@ -7,10 +7,10 @@ package Lab1;
 public class Problem3 {
 
 	public static void main(String[] args){
-		printSepticSize(1);
-		purchaseMonth("December");
+		printSepticSize(3);
+		purchaseMonth("May");
 	}
- 
+
 	public static void printSepticSize(int bedrooms){
 		switch(bedrooms) {
 		case 1:
@@ -42,7 +42,7 @@ public class Problem3 {
 		else if (month == "November" | month == "February") {
 			System.out.println("OK month to purchase a house!");
 		}
-		else if (month == "January" | month == "December") {
+		else if (month = "January" | month == "December") {
 			System.out.println("Worst month to purchase a house!");
 		}
 		else System.out.println("Any month is a great month to purchase a house!");
