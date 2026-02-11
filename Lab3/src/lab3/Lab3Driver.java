@@ -72,4 +72,25 @@ public class Lab3Driver {
         sc.close();
     }
 
+	// class instantiations
+	MultiFamily family = new MultiFamily(0, "453 Rearheaert Dr", "zip", "loca", 19, 13.3, 100, "avail", 101.2, 101.3, 6, 9, 3, 4);
+	family.setaddress("453 Rearheaert Dr");
+	Townhouse town = new Townhouse(0, "801 Outhwood Pk", "zip", "loca", 19, 13.3, 100, "avail", 101.2, 101.3, 1, 2, 3, 4);
+	town.setaddress("801 Outhwood Pk");
+	Condo condo = new Condo(0, "987 Winne Rd", "zip", "loca", 19, 13.3, 0, "avail", 101.2, 101.3, 1, 2, 3, 4);
+	condo.setaddress("987 Winne Rd");
+	SingleFamily single = new SingleFamily(0, "8393 Justing Ct", "zip", "loca", 19, 13.3, 100, "avail", 101.2, 101.3, 1, 2, 3, 4);
+	single.setaddress("8393 Justing Ct");
+	Land land = new Land(0, "3928 Rhuthing Place", "zip", "loca", 19, 13.3, 0, "avail", 101.2, 101.3, 1, 2, 3, 4);
+	land.setaddress("3928 Rhuthing Place");
+	
+	// printing addresses
+	System.out.println();
+	System.out.println("Multi-Family at: " + family.getaddress() + " can lodge " + family.getnumFamilies() + " families.");
+	System.out.println("Townhouse at: " + town.getaddress());
+	System.out.println("Condo at: " + condo.getaddress());
+	System.out.println("SignleFamily at: " + single.getaddress());
+	System.out.println("Land at: " + land.getaddress());
+
 }
+
