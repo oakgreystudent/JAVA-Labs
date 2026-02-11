@@ -1,33 +1,57 @@
-package lab3;
+package Lab3;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Lab3Driver {
-	
-	private String fielName;
-	private String propertyType;
-	private double price;
-	
-	public static void main(String[] args) {
 
-		// class instantiations
-		MultiFamily family = new MultiFamily(0, "address", "zip", "loca", 19, 13.3, 100, "avail", 101.2, 101.3, 6, 9, 3, 4);
-		
-		Townhouse town = new Townhouse(0, "address", "zip", "loca", 19, 13.3, 100, "avail", 101.2, 101.3, 1, 2, 3, 4);
-		
-		Condo condo = new Condo(0, "address", "zip", "loca", 19, 13.3, 0, "avail", 101.2, 101.3, 1, 2, 3, 4);
+	public static void printProperties(String fileName, String propertyType) throws FileNotFoundException {
 
-		SingleFamily single = new SingleFamily(0, "address", "zip", "loca", 19, 13.3, 100, "avail", 101.2, 101.3, 1, 2, 3, 4);
+		File file = new File(fileName);
+		Scanner input = new Scanner(file);
 
-		Land land = new Land(0, "address", "zip", "loca", 19, 13.3, 0, "avail", 101.2, 101.3, 1, 2, 3, 4);
+		while (input.hasNextLine()) {
+			String line = input.nextLine();
 
-		// printing addresses
-		System.out.println("Multi-Family at: " + family.getaddress() + " can lodge " + family.getnumFamilies() + " families.");
-		System.out.println("Townhouse at: " + town.getaddress());
-		System.out.println("Condo at: " + condo.getaddress());
-		System.out.println("SignleFamily at: " + single.getaddress());
-		System.out.println("Land at: " + land.getaddress());
+			if (line.contains(propertyType)) {
+				System.out.println(line);
+			}
+		}
+
+		input.close();
 	}
-	
-	public void printProperties(String String) {}
-	
-	public void printPropertiesPrice(String Double) {}
+
+	public static void printPropertiesPrice(String fileName, double maxPrice)
+	        throws FileNotFoundException {
+
+	    File file = new File(fileName);
+	    Scanner input = new Scanner(file);
+
+	    input.nextLine(); 
+
+	    while (input.hasNextLine()) {
+	        String line = input.nextLine();
+	        String[] parts = line.split(",");
+
+	        if (parts[6].isEmpty()) continue; 
+
+	        double price = Double.parseDouble(parts[6]);
+
+	        if (price <= maxPrice) {
+	            System.out.println(line);
+	        }
+	    }
+
+	    input.close();
+	}
+
+	public static void main(String[] args) throws FileNotFoundException {
+
+		String fileName = "springfield_properties.csv";
+
+		printProperties(fileName, "Vacant Land");
+		System.out.println();
+		printPropertiesPrice(fileName, 100000);
+	}
 }
