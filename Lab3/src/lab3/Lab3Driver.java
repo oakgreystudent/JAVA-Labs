@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Lab3Driver {
 
+	// read info from csv and print it
 	public static void printProperties(String fileName, String propertyType)
 	        throws FileNotFoundException {
 
@@ -28,6 +29,7 @@ public class Lab3Driver {
 	    input.close();
 	}
 
+	// read info from csv and print it
     public static void printPropertiesPrice(String fileName, double maxPrice)
             throws FileNotFoundException {
 
@@ -51,7 +53,8 @@ public class Lab3Driver {
 
         input.close();
     }
- 
+
+	// Take file name as input and throw exception if file is not found
     public static void main(String[] args) throws FileNotFoundException {
 
         Scanner sc = new Scanner(System.in);
@@ -93,4 +96,5 @@ public class Lab3Driver {
 	System.out.println("Land at: " + land.getaddress());
 
 }
+
 
