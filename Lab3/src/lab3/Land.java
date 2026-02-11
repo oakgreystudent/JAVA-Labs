@@ -1,0 +1,12 @@
+package lab3;
+
+public class Land extends Property {
+
+	// constructor
+	Land(int sqFeet, String address, String zip, String location, int daysOnMarket, double price, int lotsize, String status, double latitude, double longitude, 
+			int yearBuilt, int numBeds, int numBaths, double pricePerSqFoot) {
+		super(0, "address", "zip", "loca", 19, 13.3, 100, "avail", 101.2, 101.3);
+		
+	}
+	
+}
