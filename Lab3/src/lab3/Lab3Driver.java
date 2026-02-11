@@ -6,22 +6,27 @@ import java.util.Scanner;
 
 public class Lab3Driver {
 
-    public static void printProperties(String fileName, String propertyType)
-            throws FileNotFoundException {
+	public static void printProperties(String fileName, String propertyType)
+	        throws FileNotFoundException {
 
-        File file = new File(fileName);
-        Scanner input = new Scanner(file);
+	    File file = new File(fileName);
+	    Scanner input = new Scanner(file);
 
-        while (input.hasNextLine()) {
-            String line = input.nextLine();
+	    input.nextLine(); 
 
-            if (line.contains(propertyType)) {
-                System.out.println(line);
-            }
-        }
+	    while (input.hasNextLine()) {
+	        String line = input.nextLine();
+	        String[] parts = line.split(",");
 
-        input.close();
-    }
+	        String type = parts[1].replace("\"", ""); 
+
+	        if (type.equalsIgnoreCase(propertyType)) {
+	            System.out.println(line);
+	        }
+	    }
+
+	    input.close();
+	}
 
     public static void printPropertiesPrice(String fileName, double maxPrice)
             throws FileNotFoundException {
