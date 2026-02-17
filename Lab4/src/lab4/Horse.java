@@ -80,4 +80,9 @@ public class Horse {
 		return breed; // output name
 	}
 	
+	@Override
+	public String toString() {
+		return ("\n Race Horse Name: " + this.getName() + ", Height: " + this.getHeight() + ", Weight: " + this.getWeight() + ", Year born: " + this.getYearBorn() + ", Color: " + this.getColor() + ", Breed:" + this.getBreed() + "\n" + "======");
+	}
+	
 }
