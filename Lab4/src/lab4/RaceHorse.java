@@ -56,4 +56,9 @@ public class RaceHorse extends Horse{
 	public double getWinnings() {
 		return winnings; // output name
 	}
+	
+	@Override
+	public String toString() {
+		return ("\n Race Horse Name: " + this.getName() + ", Height: " + this.getHeight() + ", Weight: " + this.getWeight() + ", Year born: " + this.getYearBorn() + ", Color: " + this.getColor() + ", Breed:" + this.getBreed() + "\n" + "======");
+	}
 }
