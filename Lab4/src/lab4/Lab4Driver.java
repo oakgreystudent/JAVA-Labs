@@ -24,8 +24,9 @@ public class Lab4Driver {
 		System.out.println("*****SORTED ARRAY*****");
 		// sort the array
 		//Arrays.sort(array, new racehorse.compareTo());
-		Collections.sort((array);
+		Collections.sort(array);
 		System.out.println(array);
 
     }
 }
+
