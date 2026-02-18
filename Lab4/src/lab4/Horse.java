@@ -1,4 +1,4 @@
-package lab4;
+package Lab4;
 
 public class Horse {
 	private String name;
