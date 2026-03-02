@@ -13,15 +13,16 @@ import java.math.*;
 public class PropertyFinder {
 	
 	// function to calculate distance using java's math package
-	public static void findDistance (double lat1, double long1, double lat2, double long2) {
+	public static double findDistance (double lat1, double long1, double lat2, double long2) {
 		double X = Math.cos(Math.toRadians(lat2)) * Math.cos(Math.toRadians(long2)) - Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(long1));
 		double Y = Math.cos(Math.toRadians(lat2)) * Math.sin(Math.toRadians(long2)) - Math.cos(Math.toRadians(lat1)) * Math.sin(Math.toRadians(long1));
 		double Z = Math.sin(Math.toRadians(lat2)) - Math.sin(Math.toRadians(lat1));
 		double Distance = 3958.761 * Math.sqrt(Math.pow(X, X) + Math.pow(Y, Y) + Math.pow(Z, Z));
+		return Distance;
 	}
 	
 	// find the closest property
-	public static void findClosest () {
+	public static Property findClosest () {
 		
 		Scanner user = new Scanner(System.in); //create scanner object
 		System.out.println("Enter latitude:");
@@ -33,13 +34,23 @@ public class PropertyFinder {
 		Double long2 = user2.nextDouble(); //read user input
 		user2.close();
 		
+		Property closest = null;
 		
-		
-		double distance;
-		return distance;
+		Double lowest = findDistance(theProperties[0].getLatitude(), theProperties[0].getLatitude(), lat1, long2);
+		for (Property i:theProperties) {
+			double distance = findDistance(i.getLatitude(), i.getLatitude(), lat1, long2);
+			if (distance < lowest) {
+				lowest = distance;
+				closest = i;
+			
+			//return closest;
+			}
+			//return closest;
+		}
+		return closest;
 	}
 	
-	// You may assume a maximum of 200 properties in the file
+	static // You may assume a maximum of 200 properties in the file
 	Property[] theProperties = new Property[200];
 	// Keep track of the number of properties in the array
 	int numProps = 0;
