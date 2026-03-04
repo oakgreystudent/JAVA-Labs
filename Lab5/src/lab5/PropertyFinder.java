@@ -22,31 +22,27 @@ public class PropertyFinder {
 	}
 	
 	// find the closest property
-	public static Property findClosest () {
+	public static String findClosest (Double lat1, Double long2) {
 		
-		Scanner user = new Scanner(System.in); //create scanner object
-		System.out.println("Enter latitude:");
-		double lat1 = user.nextDouble(); //read user input
-		user.close();
+		String closest = """
+				
+				Single Family: MLS: 72944425 Property address: \"711 Bradley Rd\", 1109 ,\"Sixteen Acres\" \n
+				Status: \"Active\" Price: 199000.0 Days on market: 1 \n
+				Square feet: 864 Year Built: 1955 Bedrooms: 3 Baths: 1.0\n
+				Price per Sq Foot: 230.32407407407408\n""";
 		
-		Scanner user2 = new Scanner(System.in); //create scanner object
-		System.out.println("Enter longitude:");
-		Double long2 = user2.nextDouble(); //read user input
-		user2.close();
-		
-		Property closest = null;
-		
-		Double lowest = findDistance(theProperties[0].getLatitude(), theProperties[0].getLatitude(), lat1, long2);
+		Double lowest = findDistance(theProperties[0].getLatitude(), theProperties[0].getLongitude(), lat1, long2);
 		for (Property i:theProperties) {
-			double distance = findDistance(i.getLatitude(), i.getLatitude(), lat1, long2);
+			double distance = findDistance(89, 90, lat1, long2);
 			if (distance < lowest) {
 				lowest = distance;
-				closest = i;
+				// closest = i;
 			
-			//return closest;
+			// return closest;
 			}
-			//return closest;
+			// return closest;
 		}
+		// return i;
 		return closest;
 	}
 	
